@@ -21,21 +21,25 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 *******************************************************************************
 ''')
 print("Welcome to Treasure Island.")
-print("Your mission is to find the treasure.") 
+print("Your mission is to find the treasure.")
 
-ans = input("Where do you want to go? Type 'left' or 'right': ")
+ans = input("Where do you want to go? Type 'left' or 'right': ").lower()
 
-if ans == 'right' or ans == 'Right':
-  print('You felt into a hole. Game Over')
-elif ans == 'left' or ans == 'Left':
-  ans = input("You are on the right way. Now, how do you want to go? Type 'swin' or 'wait': ")
-  if ans == 'swin' or ans == 'Swin':
-    print('Attacked by trout. Game Over')
-  elif ans == 'wait' or ans == 'Wait':
-    ans = input("You are on the right way. Now choose a door. Type 'yellow', 'red' or 'blue': ")
-    if ans == 'red' or ans == 'Red':
-      print('Burned by fire. Game Over')
-    elif ans == 'blue' or ans == 'Blue':
-      print('Eaten by beasts. Game Over')
-    elif ans == 'yellow' or ans == 'Yellow':
-      print('You found the treasure. Congrats!!')
+if ans == 'left':
+    ans = input(
+        "You are on the right way. Now, how do you want to go? Type 'swin' or 'wait': "
+    ).lower()
+    if ans == 'wait':
+        ans = input(
+            "You are on the right way. Now choose a door. Type 'yellow', 'red' or 'blue': "
+        ).lower()
+        if ans == 'yellow':
+            print('You found the treasure. Congrats!!')
+        elif ans == 'blue':
+            print('Eaten by beasts. Game Over')
+        else:
+            print('Burned by fire. Game Over')
+    else:
+        print('Attacked by trout. Game Over')
+else:
+    print('You fell into a hole. Game Over')
